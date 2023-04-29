@@ -37,9 +37,9 @@ public class CategoryController {
 	}
 
 	@PostMapping
-	@PreAuthorize("hasRole('USER')")
+	@PreAuthorize("hasRole('Admin')")
 	public ResponseEntity<Category> addCategory(@Valid @RequestBody Category category,
-			@CurrentUser UserPrincipal currentUser) {
+			@CurrentAdmin AdminPrincipal currentAdmin) {
 
 		return categoryService.addCategory(category, currentUser);
 	}
